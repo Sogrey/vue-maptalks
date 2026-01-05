@@ -20,6 +20,7 @@ onMounted(() => {
     })
 
     map.on('click', (param) => {
+      if (!param || !param.coordinate) return
       const coordinate = param.coordinate.toFixed(5).toArray()
       const time = new Date().toLocaleTimeString()
       const eventStr = `${time}: click map on [${coordinate[0]}, ${coordinate[1]}]`

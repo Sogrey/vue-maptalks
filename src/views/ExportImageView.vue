@@ -18,7 +18,8 @@ onMounted(() => {
       })
     })
 
-    new maptalks.VectorLayer('v', new maptalks.Marker(map.getCenter())).addTo(map)
+    const marker = new maptalks.Marker(map.getCenter())
+    new maptalks.VectorLayer('v', [marker]).addTo(map)
   }
 })
 

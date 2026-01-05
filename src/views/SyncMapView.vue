@@ -36,19 +36,27 @@ onMounted(() => {
     // 确保两个地图都已创建后再添加事件监听
     if (map0 && map1) {
       map0.on('moving moveend', () => {
-        map1.setCenter(map0.getCenter())
+        if (map1 && map0) {
+          map1.setCenter(map0.getCenter())
+        }
       })
 
       map0.on('zooming zoomend', () => {
-        map1.setCenterAndZoom(map0.getCenter(), map0.getZoom())
+        if (map1 && map0) {
+          map1.setCenterAndZoom(map0.getCenter(), map0.getZoom())
+        }
       })
 
       map0.on('pitch', () => {
-        map1.setPitch(map0.getPitch())
+        if (map1 && map0) {
+          map1.setPitch(map0.getPitch())
+        }
       })
 
       map0.on('rotate', () => {
-        map1.setBearing(map0.getBearing())
+        if (map1 && map0) {
+          map1.setBearing(map0.getBearing())
+        }
       })
     }
   }
